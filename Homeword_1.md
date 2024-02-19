@@ -20,27 +20,20 @@ Python编程环境：VScode
 ## 1. 题目
 
 ### 20742: 泰波拿契數
-
-http://cs101.openjudge.cn/practice/20742/
-
-
-
-思路：
-
-
-
-##### 代码
-
-```python
-# 
-
-```
-
-
-
-代码运行截图 ==（至少包含有"Accepted"）==
-
-
+**思路**：
+用四个变量进行迭代，循环次数为n-2
+**源码**：
+a=0 
+b=1
+c=1
+d=int(input())-2
+for i in range(d):
+    e=a+b+c
+    a=b
+    b=c
+    c=e
+print (c)
+**截图**：
 
 
 
