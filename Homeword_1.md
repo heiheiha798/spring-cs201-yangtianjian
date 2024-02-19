@@ -49,7 +49,7 @@ print (c)
 ##### 代码：
 
 ```python
-![Screenshot 2024-02-19 215456](C:\Users\13071\Desktop\大一下\数算B\Homework\#1\Screenshot 2024-02-19 215456.png)s=input()
+s=input()
 list1=["h","e","l","l","o"]
 inde=0
 pos=0
