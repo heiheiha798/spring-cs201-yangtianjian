@@ -39,9 +39,11 @@ print (c)
 
 截图：
 
-![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot 2024-02-19 214052.png)
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot%202024-02-19%20214052.png)
 
-### 58A. Chat room
+
+
+### 58A. Chat rooms
 
 思路：
 
