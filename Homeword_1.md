@@ -39,9 +39,7 @@ print (c)
 
 截图：
 
-![](C:\Users\13071\Desktop\大一下\数算B\Homework\#1\Screenshot 2024-02-19 214052.png)
-
-
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot 2024-02-19 214052.png)
 
 ### 58A. Chat room
 
@@ -70,7 +68,7 @@ else :
 
 截图 ：
 
-![](C:\Users\13071\Desktop\大一下\数算B\Homework\#1\Screenshot 2024-02-19 215456.png)
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot%202024-02-19%20215456.png)
 
 
 
@@ -96,7 +94,7 @@ print (ans)
 
 截图：
 
-![](C:\Users\13071\Desktop\大一下\数算B\Homework\#1\Screenshot 2024-02-19 220538.png)
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot%202024-02-19%20220538.png)
 
 
 
@@ -130,7 +128,7 @@ for i in range (2,a//2):
 
 截图：
 
-![](C:\Users\13071\Desktop\大一下\数算B\Homework\#1\Screenshot 2024-02-19 221549.png)
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot%202024-02-19%20221549.png)
 
 
 
@@ -158,7 +156,7 @@ print ("n^"+str(ans))
 
 截图：
 
-![](C:\Users\13071\Desktop\大一下\数算B\Homework\#1\Screenshot 2024-02-19 232317.png)
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot%202024-02-19%20232317.png)
 
 
 
@@ -183,7 +181,7 @@ for i in range (100001):
 
 截图：
 
-![](C:\Users\13071\Desktop\大一下\数算B\Homework\#1\Screenshot 2024-02-19 234309.png)
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot%202024-02-19%20234309.png)
 
 
 
