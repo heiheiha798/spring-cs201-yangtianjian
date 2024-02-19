@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: upload
+---
+
 # Homework #1: 从零开始学习Python
 
 2024 spring, Complied by ==杨天健、信息科学技术学院==
