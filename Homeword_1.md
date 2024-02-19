@@ -1,10 +1,6 @@
----
-typora-copy-images-to: upload
----
-
 # Homework #1: 从零开始学习Python
 
-2024 spring, Complied by ==杨天健、信息科学技术学院==
+2024 spring, Complied by ==杨天健-信息科学技术学院==
 
 **编程环境**
 
@@ -14,6 +10,7 @@ Python编程环境：VScode    python 3.8.12
 
 
 ## 题目
+
 
 ### 20742: 泰波拿契數
 
