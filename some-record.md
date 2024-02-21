@@ -17,7 +17,7 @@ total = ['item_one', 'item_two', 'item_three',
         'item_four', 'item_five']
 ```
 
-+++
+ 
 
 ##### #2
 
@@ -29,7 +29,7 @@ r"this is a line with \n"
 
 则 **\n** 会显示，并不是换行。
 
-+++
+ 
 
 ##### #3
 
@@ -43,13 +43,13 @@ Python 字符串不能被改变，向一个索引位置赋值，比如 **word[0]
 
 string的截取的语法格式如下：**变量[头下标:尾下标:步长]**——>可以用string[:-1]去掉一个string的末尾
 
-+++
+ 
 
 ##### #4
 
 **print** 默认输出是换行的，如果要实现不换行需要在变量末尾加上 **end="xxx"**
 
-+++
+ 
 
 ##### #5
 
@@ -79,7 +79,7 @@ from somemodule import firstfunc, secondfunc,thirdfunc
 from somemodule import 
 ```
 
-+++
+ 
 
 ##### #6
 
@@ -95,7 +95,7 @@ a = b = c = 1
 a, b, c = 1, 2, "runoob"
 ```
 
-+++
+ 
 
 ##### #7
 
@@ -113,7 +113,7 @@ Python3 中常见的数据类型有：Number（数字）、String（字符串）
 <class 'int'> <class 'float'> <class 'bool'> <class 'complex'>
 ```
 
-+++
+ 
 
 ##### #8
 
@@ -130,7 +130,7 @@ List(列表)是写在方括号 **[]** 之间、用逗号分隔开的元素列表
 [9, 2, 6]
 ```
 
-+++
+ 
 
 ##### #9
 
@@ -143,7 +143,7 @@ tup1 = ()    # 空元组
 tup2 = (20,) # 一个元素，需要在元素后添加逗号
 ```
 
-+++
+ 
 
 ##### #10
 
@@ -190,7 +190,7 @@ Runoob 在集合中
 {'z', 'b', 'm', 'r', 'l', 'd'}
 ```
 
-+++
+ 
 
 ##### #11
 
