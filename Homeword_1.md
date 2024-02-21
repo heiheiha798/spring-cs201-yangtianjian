@@ -1,6 +1,10 @@
-# Homework #1: 从零开始学习Python
+---
+typora-copy-images-to: upload
+---
 
-2024 spring, Complied by ==杨天健-信息科学技术学院==
+# Homework #1: 拉齐大家Python水平
+
+2024 spring, Complied by ==杨天健、信息科学技术学院==
 
 **编程环境**
 
@@ -11,8 +15,9 @@ Python编程环境：VScode    python 3.8.12
 
 ## 题目
 
-
 ### 20742: 泰波拿契數
+
+http://cs101.openjudge.cn/practice/20742/
 
 思路：
 
@@ -42,6 +47,8 @@ print (c)
 
 ### 58A. Chat rooms
 
+http://codeforces.com/problemset/problem/58/A
+
 思路：
 
 将“hello”拆成list，对string依次查找字母，若有一次找不到则pos<5，能全找到则pos=5，根据pos==5的真假进行输出
@@ -49,7 +56,7 @@ print (c)
 ##### 代码：
 
 ```python
-s=input()
+![Screenshot 2024-02-19 215456](C:\Users\13071\Desktop\大一下\数算B\Homework\#1\Screenshot 2024-02-19 215456.png)s=input()
 list1=["h","e","l","l","o"]
 inde=0
 pos=0
@@ -72,6 +79,8 @@ else :
 
 
 ### 118A. String Task
+
+http://codeforces.com/problemset/problem/118/A
 
 思路：
 
@@ -98,6 +107,8 @@ print (ans)
 
 
 ### 22359: Goldbach Conjecture
+
+http://cs101.openjudge.cn/practice/22359/
 
 思路：
 
@@ -133,6 +144,8 @@ for i in range (2,a//2):
 
 ### 23563: 多项式时间复杂度
 
+http://cs101.openjudge.cn/practice/23563/
+
 思路：
 
 输入字符串按“+”进行分割，对每一项检查：幂次是否大于零、系数是否是零，对合格的项比大小
@@ -160,6 +173,8 @@ print ("n^"+str(ans))
 
 
 ### 24684: 直播计票
+
+http://cs101.openjudge.cn/practice/24684/
 
 思路：
 
