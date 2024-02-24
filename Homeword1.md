@@ -1,6 +1,3 @@
----
-typora-copy-images-to: upload
----
 
 # Homework #1: 拉齐大家Python水平
 
