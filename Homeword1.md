@@ -1,4 +1,3 @@
-
 # Homework #1: 拉齐大家Python水平
 
 2024 spring, Complied by ==杨天健、信息科学技术学院==
