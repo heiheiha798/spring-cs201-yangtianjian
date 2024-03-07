@@ -40,9 +40,7 @@ print(len(list1))
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H3/Screenshot%202024-03-06%20174420.jpg)
-
-
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/2ddacca0a438a91b903679f2ff5797ce5b19c788/img/Screenshot%202024-03-06%20174420.jpg)
 
 **04147:汉诺塔问题(Tower of Hanoi)**
 
@@ -71,7 +69,7 @@ hano(n,a,b,c,n)
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot%202024-03-06%20174612.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/2ddacca0a438a91b903679f2ff5797ce5b19c788/img/Screenshot%202024-03-06%20174612.jpg)
 
 
 
@@ -102,7 +100,7 @@ while True:
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H3/Screenshot%202024-03-06%20174758.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/2ddacca0a438a91b903679f2ff5797ce5b19c788/img/Screenshot%202024-03-06%20174758.jpg)
 
 
 
@@ -137,7 +135,7 @@ print("%.2f"%(sum/n))
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H3/Screenshot%202024-03-06%20174905.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/2ddacca0a438a91b903679f2ff5797ce5b19c788/img/Screenshot%202024-03-06%20174905.jpg)
 
 
 
@@ -179,7 +177,7 @@ print(sum)
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H3/Screenshot%202024-03-06%20175313.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/2ddacca0a438a91b903679f2ff5797ce5b19c788/img/Screenshot%202024-03-06%20175313.jpgg)
 
 
 
@@ -232,7 +230,7 @@ for i in names:
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H3/Screenshot%202024-03-06%20175636.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/2ddacca0a438a91b903679f2ff5797ce5b19c788/img/Screenshot%202024-03-06%20175636.jpg)
 
 
 
