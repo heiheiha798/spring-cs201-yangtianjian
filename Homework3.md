@@ -177,7 +177,7 @@ print(sum)
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/2ddacca0a438a91b903679f2ff5797ce5b19c788/img/Screenshot%202024-03-06%20175313.jpgg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/2ddacca0a438a91b903679f2ff5797ce5b19c788/img/Screenshot%202024-03-06%20175313.jpg)
 
 
 
