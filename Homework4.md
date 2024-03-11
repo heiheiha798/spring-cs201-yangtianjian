@@ -178,7 +178,7 @@ while True:
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot 2024-03-11 115634.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/f15e050269d4a75448ea2bfe26fb3078908bca43/img/Screenshot%202024-03-11%20115634.jpg)
 
 
 
