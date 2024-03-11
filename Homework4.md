@@ -41,8 +41,7 @@ for _ in range(int(input())):
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot 2024-03-11 114456.jpg)
-
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/f1990c39261a99b979ad9f996ed713b524d80775/img/Screenshot%202024-03-11%20114456.jpg)
 
 
 ### 02694: 波兰表达式
@@ -81,7 +80,7 @@ print("%f\n"%(read()))
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot 2024-03-11 114712.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/f1990c39261a99b979ad9f996ed713b524d80775/img/Screenshot%202024-03-11%20114712.jpg)
 
 
 
@@ -136,7 +135,7 @@ for _ in range(int(input())):
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/Screenshot%202024-03-11%20115423.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/f1990c39261a99b979ad9f996ed713b524d80775/img/Screenshot%202024-03-11%20115423.jpg)
 
 
 
