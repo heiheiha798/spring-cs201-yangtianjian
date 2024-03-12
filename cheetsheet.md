@@ -206,3 +206,20 @@ for pair in zipped:
 
 需要注意的是，如果可迭代对象的长度不同，`zip` 函数将会以最短的长度为准，多余的元素将被忽略。
 
+**#8.bisect好用**
+
+**nlog(n)复杂度求逆序数**
+
+```python
+import bisect
+n=int(input())
+lsit1=list(map(int,input().split()))
+list1=[]
+ans=0
+for i in lsit1:
+    pos=bisect.bisect_left(list1,i)
+    ans+=pos
+    list1.insert(pos,i)
+print(ans)
+```
+
