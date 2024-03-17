@@ -57,7 +57,7 @@ print(f"{findmax(root)-1} {sumleaf}")
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H4/Screenshot%202024-03-11%20114456.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/760d050fb5a70beb0fcc57cf50e1ddb171af15ca/img/Screenshot%202024-03-17%20223505.jpg)
 
 
 
@@ -115,7 +115,7 @@ print(post(root))
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H4/Screenshot%202024-03-11%20114712.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/760d050fb5a70beb0fcc57cf50e1ddb171af15ca/img/Screenshot%202024-03-17%20223558.jpg)
 
 
 
@@ -177,7 +177,7 @@ while True:
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H4/Screenshot%202024-03-11%20115423.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/760d050fb5a70beb0fcc57cf50e1ddb171af15ca/img/Screenshot%202024-03-17%20223623.jpg)
 
 
 
@@ -233,7 +233,7 @@ for _ in range(int(input())):
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H4/Screenshot%202024-03-11%20115634.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/760d050fb5a70beb0fcc57cf50e1ddb171af15ca/img/Screenshot%202024-03-17%20225729.jpg)
 
 
 
@@ -284,7 +284,7 @@ print(pre(root))
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H4/Screenshot%202024-03-11%20115742.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/760d050fb5a70beb0fcc57cf50e1ddb171af15ca/img/Screenshot%202024-03-17%20225802.jpg)
 
 
 
@@ -338,7 +338,7 @@ while True:
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H4/Screenshot%202024-03-11%20115954.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/760d050fb5a70beb0fcc57cf50e1ddb171af15ca/img/Screenshot%202024-03-17%20230001.jpg)
 
 
 
@@ -360,6 +360,3 @@ while True:
 
 
 
-
-
-![]()
