@@ -151,6 +151,28 @@ for i in lsit1:
 print(ans)
 ```
 
+补充一点关于insert、bisect.bisect_left、bisect.insort_left等等的参数传递规则：
+
+```python
+list.insort(index,item)
+bisect.bisect_left(list,item)
+bisect.insort_left(list,item)
+```
+
+请注意，如果写：
+
+```python
+from bisect import *
+```
+
+将会得到类似C++中类似
+
+```C++
+using namespace bisect
+```
+
+的效果，在写小代码量程序时非常方便
+
 **#9.关于heapq**
 
 **默认是最小堆，但实际上把值都取负就是最大堆，pop的时候再取一下负就行了**
