@@ -223,3 +223,69 @@ for i in lsit1:
 print(ans)
 ```
 
+**#9.关于heapq**
+
+**默认是最小堆，但实际上把值都取负就是最大堆，pop的时候再取一下负就行了**
+
+```python
+# OJ-06648:Sequence
+import heapq
+
+def g(list2,list1,n):
+    heap=[(list1[0]+list2[i],0,i)for i in range(n)]
+    ans=[]
+    while n>0:
+        ans1,pos1,pos2=heapq.heappop(heap)
+        ans.append(ans1)
+        if pos1+1<n:
+            heapq.heappush(heap,(list1[pos1+1]+list2[pos2],pos1+1,pos2))
+        n-=1
+    return sorted(ans)
+
+def f(list1,n,m):
+    mini=list1[0]
+    for i in range(1,m):
+        mini=g(mini,list1[i],n)
+    return mini
+
+for _ in range(int(input())):
+    m,n=map(int,input().split())
+    list1=[sorted(list(map(int,input().split())))for _ in range(m)]
+    result=f(list1,n,m)
+    print(*result)
+```
+
+**#10.关于deque**
+
+**把我虐惨的题目都要好好记下来**
+
+```python
+# OJ-26978:滑动窗口最大值
+from collections import deque
+
+n, k = map(int, input().split())
+list1 = list(map(int, input().split()))
+deque = deque()  # 用于存储索引
+ans = []
+
+for i in range(n):
+    # 移除所有在当前滑动窗口之外的索引
+    while deque and deque[0] < i - k + 1:
+        deque.popleft()
+    # 移除所有小于当前元素的值，因为它们不会成为最大值
+    while deque and list1[i] >= list1[deque[-1]]:
+        deque.pop()
+    deque.append(i)
+    # 当前窗口形成后，添加当前窗口的最大值到结果中
+    if i >= k - 1:
+        ans.append(list1[deque[0]])
+
+print(*ans)
+```
+
+反思：
+
+1.不要单纯把数值和序号挂钩进行暴力sort，可以把数值条件放到if中判断，只维护一个序号数组
+
+2.耗时太久就GPT吧，别自己写了，真浪费时间败坏心情，难受😫
+
