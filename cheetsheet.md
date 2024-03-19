@@ -31,8 +31,6 @@ data = ["1.23B", "5.67K", "10.5M", "3.21B"]
 data.sort(key=custom_sort_key)
 ```
 
-
-
 **#2.Kadane算法**
 
 ```python
@@ -104,7 +102,58 @@ print(ans)
 
 **#5.dic.items()返回键值对，dic只有键**
 
-**#6.list直接赋值的时候是赋了一个引用**
+**#6.list直接赋值的时候是赋了一个引用，copy（）是浅拷贝**
+
+如果想单纯地复制数值，使用
+
+```python
+from copy import deepcopy
+list2=deepcopy(list1)
+```
+
+有时候反应不过来debug真的会想亖
+
+```python
+# OJ-20644:统计全为 1 的正方形子矩阵
+from copy import deepcopy
+
+hang,lie=map(int,input().split())
+list1=[[0]*(lie+1)]
+for _ in range(hang):
+    s=input()
+    list2=[0]
+    for i in s:
+        list2.append(int(i))
+    list1.append(list2)
+dp=deepcopy(list1)
+hang1=hang-1
+lie1=lie-1
+while hang1>0 and lie1>0:
+    for i in range(1,hang1+1):
+        if list1[i][lie1]==1 and dp[i+1][lie1+1]>=1:
+            x=0
+            y=0
+            while lie1+y<=lie and list1[i][lie1+y]==1:
+                y+=1
+            while i+x<=hang and list1[i+x][lie1]==1:
+                x+=1
+            dp[i][lie1]=min(x,min(y,1+dp[i+1][lie1+1]))
+    for i in range(1,lie1+1):
+        if list1[hang1][i]==1 and dp[hang1+1][i+1]>=1:
+            x=0
+            y=0
+            while i+y<=lie and list1[hang1][i+y]==1:
+                y+=1
+            while x+hang1<=hang and list1[hang1+x][i]==1:
+                x+=1
+            dp[hang1][i]=min(x,min(y,1+dp[hang1+1][i+1]))
+    hang1-=1
+    lie1-=1
+ans=0
+for i in dp:
+    ans+=sum(i)
+print(ans)
+```
 
 **#7.关于zip**
 
@@ -238,4 +287,50 @@ print(*ans)
 1.不要单纯把数值和序号挂钩进行暴力sort，可以把数值条件放到if中判断，只维护一个序号数组
 
 2.耗时太久就GPT吧，别自己写了，真浪费时间败坏心情，难受😫
+
+**#11.笨笨脑瓜永远想不出的前缀和，妙**
+
+```python
+# OJ-20453:和为k的子数组个数
+def subarray_sum(nums, k):
+    count = 0
+    sums = 0
+    d = dict()
+    d[0] = 1
+
+    for i in range(len(nums)):
+        sums += nums[i]
+        count += d.get(sums - k, 0)
+        d[sums] = d.get(sums, 0) + 1
+
+    return count
+
+nums = list(map(int, input().split()))
+k = int(input().strip())
+print(subarray_sum(nums, k))
+```
+
+并且学到了get的用法，这是个defaultlist（0）的很好替代
+
+**#12异或与XOR**
+
+XOR：一真一假为True，对数值进行XOR运算时实际上是在2进制下做运算，符号为^，有意思的是a^a=0
+
+```python
+# OJ-20626:对子数列做XOR运算
+list1=list(map(int,input().split()))
+sum1=list1[0]
+stack=[sum1]
+for i in range(1,len(list1)):
+    sum1^=list1[i]
+    stack.append(sum1)
+    
+for _ in range(10000):
+    a,b=map(int,input().split())
+    if a==0:
+        print(stack[b])
+    else :
+        print(stack[b]^stack[a-1])
+# 对前缀和很好的应用
+```
 
