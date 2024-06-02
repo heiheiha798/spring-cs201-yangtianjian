@@ -80,7 +80,7 @@ for _ in range(int(input())):
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/08.04.2024_12.20.33_REC.png)
+![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H8/08.04.2024_12.20.33_REC.png)
 
 
 
@@ -207,7 +207,7 @@ for _ in range(int(input())):
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/08.04.2024_13.13.56_REC.png)
+![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H8/08.04.2024_13.13.56_REC.png)
 
 
 
@@ -266,7 +266,7 @@ for key,value in buildtree1(buildtree(list(input().split())),1).items():
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/08.04.2024_13.15.03_REC.png)
+![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H8/08.04.2024_13.15.03_REC.png)
 
 
 

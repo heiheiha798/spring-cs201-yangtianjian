@@ -82,7 +82,7 @@ print(f"{oldmax} => {newmax}")
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![image-20240414182508520](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H9/image-20240414182508520.png)
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/image-20240414182508520.png)
 
 
 
@@ -132,7 +132,7 @@ print(post(root))
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![image-20240414182605658](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H9/image-20240414182605658.png)
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/image-20240414182605658.png)
 
 
 
@@ -171,7 +171,7 @@ while True:
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![image-20240414182755757](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H9/image-20240414182755757.png)
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/image-20240414182755757.png)
 
 
 
@@ -212,7 +212,7 @@ for _ in range(int(input())):
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![image-20240414185650874](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H9/image-20240414185650874.png)
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/image-20240414185650874.png)
 
 
 
@@ -257,7 +257,7 @@ print('NO')
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![image-20240414185738925](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H9/image-20240414185738925.png)
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/image-20240414185738925.png)
 
 
 
@@ -339,7 +339,7 @@ print('fail')
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![image-20240414232339658](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H9/image-20240414232339658.png)
+![](https://raw.githubusercontent.com/heiheiha798/spring-cs201-yangtianjian/main/img/image-20240602222329087.png)
 
 
 
