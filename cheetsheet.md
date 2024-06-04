@@ -1,12 +1,31 @@
+#### $$令人头大的C/C++输入$$
+
+```python
+import sys
+
+input=sys.stdin.read
+data=input().split()
+index=0
+N=int(data[index])
+index+=1
+M=int(data[index])
+index+=1
+
+k=[0.5]*M
+l=list(map(int,data[index:index+N]))
+```
+
+
+
 #### $$Sort$$
 
 ```python
 list.sort(key=None, reverse=False)
 ```
 
-$$key 是一个比较函数，默认对对象中的每个元素进行字典序比较，可以替换为自定义函数。$$
+##### $$key 是一个比较函数，默认对对象中的每个元素进行字典序比较，可以替换为自定义函数。$$
 
-$$reverse是排序规则，reverse = True 降序， reverse = False 升序（默认）$$
+##### $$reverse是排序规则，reverse = True 降序， reverse = False 升序（默认）$$
 
 ```python
 #比如说对一个元素是list的list进行排序：
@@ -17,7 +36,7 @@ data.sort(key=lambda x: (x[0], -x[1]))
 #表示用来比较的元素是先第一个元素，后第二个元素的相反数，也就是第一个升序，第二个降序
 ```
 
-$$当比较方法十分复杂的时候我们可以在sort外部定义一个比较函数$$
+##### $$当比较方法十分复杂的时候我们可以在sort外部定义一个比较函数$$
 
 ```python
 def custom_sort_key(item):
@@ -75,47 +94,58 @@ else :
 
 
 
-#### $$DFS爆栈时考虑二分或不用递归$$
+#### $$二分查找$$
 
 ```python
-# OJ-04135
-n,m = map(int, input().split())
-list1=list(int(input()) for _ in range(n))
+# OJ - 21515
+n,p,k=map(int,input().split())
+list1=[list(map(int,input().split())) for _ in range(p)]
 
-def check(x):
-    total=0
-    pos=0
-    y=0
-    while True:
-        total+=list1[pos]
-        pos+=1
-        if pos==n:
-            return (True if y<=m-1 else False)
-        elif total+list1[pos]>x:
-            total=0
-            y+=1
-    
-lo=max(list1)
-hi=sum(list1)+1
-ans=0
-while lo<hi:
-    mid=(lo+hi)//2
-    if check(mid):
-        ans=mid
-        hi=mid
-    else :
-        lo=mid+1
+import heapq
+def check(mid):
+	list2=[ ((a,b,1) if c >= mid else (a,b,0)) for a,b,c in list1]
+	dict1={x:[] for x in range(1,n+1)}
+	for a,b,c in list2:
+		dict1[a].append((c,b))
+		dict1[b].append((c,a))
+	heap=sorted(dict1[1])
+	step=[(dict1[1][x][0] if x in dict1[1] else float ('inf')) for x in range(n+1)]
+	step[1]=-1
+	while heap:
+		total,pos=heapq.heappop(heap)
+		if pos==n:
+			return total<=k
+		for wei,des in sorted(dict1[pos]):
+			if total+wei<step[des]:
+				step[des]=total+wei
+				heapq.heappush(heap,(step[des],des))
+	return -1
 
-print(ans)
+if check(-1)==-1:
+	print(-1)
+else:
+	lo=0
+	hi=max([x[2] for x in list1])
+	ans=0
+	while lo<hi:
+		mid=(lo+hi)//2
+		if check(mid):
+			hi=mid
+		else:
+			ans=mid
+			lo=mid+1
+	print(ans)
 
-#注意lo=mid+1但是hi=mid
+# 5 2 0
+# 1 5 10
+# 1 5 2
 ```
 
 
 
-#### $$list直接赋值的时候是赋了一个引用，copy\,(\;)\,是浅拷贝$$
+#### $$list直接赋值的时候是赋了一个引用$$，`copy()`$$是浅拷贝$$
 
-#### $$一维数组可以copy，多维数组需要deepcopy$$
+#### $$一维数组可以copy$$，$$多维数组需要deepcopy$$
 
 ```python
 from copy import deepcopy
@@ -124,7 +154,26 @@ list2=deepcopy(list1)
 
 
 
-#### $$关于zip$$
+#### $$Eval$$
+
+```python
+#23n2300010834 焦晨航
+while True:
+    try:
+        s=input()
+    except EOFError:
+        break
+    s=s.replace('V','True').replace('F','False')
+    s=s.replace('&',' and ').replace('|',' or ').replace('!',' not ')
+    if eval(s):
+        print('V')
+    else:
+        print('F')
+```
+
+
+
+#### $$zip$$
 
 ##### $$当你有两个或更多个可迭代对象（例如列表、元组或其他序列）时,zip函数可以将它们逐个元素地配对。$$
 
@@ -145,56 +194,15 @@ for pair in zipped:
 (3, 'c')
 ```
 
-##### $$在代码中，zip(list1, list2)将list1和list2中的元素逐一配对，生成一个由元组组成的迭代器zipped。$$
+##### $$在代码中$$，`zip(list1, list2)`$$将list1和list2中的元素逐一配对，生成一个由元组组成的迭代器zipped。$$
 
-##### $$然后，我们可以通过迭代zipped来访问这些配对。每次迭代，我们得到一个包含来自list1和list2对应位置的元素的元组。$$
+##### $$然后,我们可以通过迭代zipped来访问这些配对。每次迭代,我们得到一个包含来自list1和list2对应位置的元素的元组。$$
 
 ##### $$需要注意的是，如果可迭代对象的长度不同,zip函数将会以最短的长度为准，多余的元素将被忽略。$$
 
 
 
-#### $$bisect好用$$
-
-##### $$nlog(n)复杂度求逆序数$$
-
-```python
-import bisect
-n=int(input())
-lsit1=list(map(int,input().split()))
-list1=[]
-ans=0
-for i in lsit1:
-    pos=bisect.bisect_left(list1,i)
-    ans+=pos
-    list1.insert(pos,i)
-print(ans)
-```
-
-##### $$补充一点关于insert、bisect.bisect\_left、bisect.insert\_left等等的参数传递规则:$$
-
-```python
-list.insert(index,item)
-bisect.bisect_left(list,item)
-bisect.insort_left(list,item)
-```
-
-##### $$请注意，如果写:$$
-
-```python
-from bisect import *
-```
-
-##### $$将会得到类似C++中类似$$
-
-```C++
-using namespace bisect
-```
-
-##### $$的效果，在写小代码量程序时非常方便$$
-
-
-
-#### $$关于heapq$$
+#### $$heapq$$
 
 ##### $$默认是最小堆,但实际上把值都取负就是最大堆,pop的时候再取一下负就行了$$
 
@@ -226,9 +234,11 @@ for _ in range(int(input())):
     print(*result)
 ```
 
+##### $$值得注意的是:建堆时记得heapify$$，$$heapq.heappop是弹出第一个，可能出错$$
 
 
-#### $$关于deque$$
+
+#### $$deque$$
 
 ```python
 # OJ-26978:滑动窗口最大值
@@ -278,6 +288,37 @@ print(*ans)
 
 
 
+#### $$有趣的建树$$
+
+```python
+# OJ- 22460
+class Node:
+	def __init__(self,data):
+		self.data=data
+		self.left=None
+		self.right=None
+
+def buildtree(list1):
+	root = Node(list1.pop())
+	if root.data!='#':
+		root.left=buildtree(list1)
+		root.right=buildtree(list1)
+	return root
+
+while True:
+	try :
+		n=int(input())
+		if n==0:
+			break
+		list1=input().split()[::-1]
+		root=buildtree(list1)
+		print('F' if list1 else 'T')
+	except IndexError:
+		print('F')
+```
+
+
+
 #### $$前缀和$$
 
 ```python
@@ -298,13 +339,13 @@ print(ans)
 
 
 
-#### $$dict.get(value,type)是defaultlist的很好替代$$
+#### `dict.get(value,type)`$$是defaultlist的很好替代$$
 
 
 
 #### $$异或与(XOR)$$
 
-XOR：一真一假为True，对数值进行XOR运算时实际上是在2进制下做运算，符号为^，有意思的是a^a=0
+##### $$XOR:一真一假为True$$，$$对数值进行XOR运算时实际上是在2进制下做运算$$，$$符号为$$`^`，$$有意思的是$$`a^a=0`
 
 ```python
 # OJ-20626:对子数列做XOR运算
@@ -355,104 +396,91 @@ print(dp[45])
 
 
 
-#### $$ AVL$$
+#### $$AVL$$
 
 ```python
+# GPT-4o
 class Node:
-	def __init__(self,data):
-		self.data=data
-		self.left=None
-		self.right=None
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.height = 1
 
-def getheight(root):
-	if not root:
-		return 0
-	return 1+max(getheight(root.left),getheight(root.right))
+def get_height(root):
+    if not root:
+        return 0
+    return root.height
 
-def getbalance(root):
-	return getheight(root.left)-getheight(root.right)
+def update_height(root):
+    root.height = 1 + max(get_height(root.left), get_height(root.right))
 
-def LLrotate(root):
-	a=root.left
-	if a.right==None:
-		root.left=None
-	else:
-		root.left=a.right
-	a.right=root
-	return a
-	
-def RRrotate(root):
-	a=root.right
-	if a.left==None:
-		root.right=None
-	else:
-		root.right=a.left
-	a.left=root
-	return a
+def get_balance(root):
+    if not root:
+        return 0
+    return get_height(root.left) - get_height(root.right)
 
-def pre(root):
-	if not root:
-		return []
-	return [root.data]+pre(root.left)+pre(root.right)
+def LL_rotate(root):
+    a = root.left
+    root.left = a.right
+    a.right = root
+    update_height(root)
+    update_height(a)
+    return a
+
+def RR_rotate(root):
+    a = root.right
+    root.right = a.left
+    a.left = root
+    update_height(root)
+    update_height(a)
+    return a
+
+def LR_rotate(root):
+    root.left = RR_rotate(root.left)
+    return LL_rotate(root)
+
+def RL_rotate(root):
+    root.right = LL_rotate(root.right)
+    return RR_rotate(root)
 
 class AVL:
-	def __init__(self):
-		self.root=None
+    def __init__(self):
+        self.root = None
 
-	def insert(self,data):
-		if not self.root:
-			self.root=Node(data)
-		else:
-			self.root=self._insert(self.root,data)
+    def insert(self, data):
+        self.root = self._insert(self.root, data)
 
-	def _insert(self,root,data):
-		if not root:
-			return Node(data)
-		elif data<root.data:
-			root.left=self._insert(root.left,data)
-		else:
-			root.right=self._insert(root.right,data)
-		
-		balance=getbalance(root)
+    def _insert(self, root, data):
+        if not root:
+            return Node(data)
+        elif data < root.data:
+            root.left = self._insert(root.left, data)
+        else:
+            root.right = self._insert(root.right, data)
 
-		if balance>1:
-			if data<root.left.data:#LL
-				root=LLrotate(root)
-			else:#LR
-				root.left=RRrotate(root.left)
-				root=LLrotate(root)
-		
-		if balance<-1:
-			if data>root.right.data:#RR
-				root=RRrotate(root)
-			else:#RL
-				root.right=LLrotate(root.right)
-				root=RRrotate(root)
+        update_height(root)
+        balance = get_balance(root)
 
-		return root	
+        if balance > 1:
+            if data < root.left.data:  # LL
+                root = LL_rotate(root)
+            else:  # LR
+                root = LR_rotate(root)
+        elif balance < -1:
+            if data > root.right.data:  # RR
+                root = RR_rotate(root)
+            else:  # RL
+                root = RL_rotate(root)
 
-n=int(input())
-list1=list(map(int,input().split()))
-Tree=AVL()
-for i in list1:
-	Tree.insert(i)
-print(*pre(Tree.root))
+        return root
 ```
 
 
 
 #### $$骑士周游$$
 
-##### $$记得启发式搜索就行$$
-
-
-
-#### $$二进制$$
-
-```python
-二进制：bin(x)->0byyy
-数值之间转换：int(bin(x)[2:])
-```
+##### $$记得启发式搜索,其他开摆$$
 
 
 
@@ -485,153 +513,111 @@ pos%(pos - pre[pos-1]) == 0 and pre[pos-1]!=0
 
 
 
-#### $$表达式树——shunting\,-\,yard$$
-
-
-
-
-
-#### 中序表达式转后序表达式
+#### $$中序表达式转后序——$$Shunting Yard Algorithm
 
 ```python
-pre={'+':1,'-':1,'*':2,'/':2}
-for _ in range(int(input())):
-    expr=input()
-    ans=[]; ops=[]
-    for char in expr:
-        if char.isdigit() or char=='.':
-            ans.append(char)
-        elif char=='(':
+# GPT-4o
+ops_to_num = {'+': 1, '-': 1, '*': 2, '/': 2}
+
+def shunting_yard(expression):
+    output = []
+    ops = []
+    for char in expression:
+        if char.isdigit() or char == '.':
+            output.append(char)
+        elif char == '(':
             ops.append(char)
-        elif char==')':
-            while ops and ops[-1]!='(':
-                ans.append(ops.pop())
+        elif char == ')':
+            while ops and ops[-1] != '(':
+                output.append(ops.pop())
             ops.pop()
         else:
-            while ops and ops[-1]!='(' and pre[ops[-1]]>=pre[char]:
-                ans.append(ops.pop())
+            while ops and ops[-1] != '(' and ops_to_num[ops[-1]] >= ops_to_num[char]:
+                output.append(ops.pop())
             ops.append(char)
     while ops:
-        ans.append(ops.pop())
-    print(''.join(ans))
+        output.append(ops.pop())
+    return ''.join(output)
 ```
 
-#### 最大全0子矩阵
+
+
+#### $$Merge\_Sort$$
 
 ```python
-for row in ma:
-    stack=[]
-    for i in range(n):
-        h[i]=h[i]+1 if row[i]==0 else 0
-        while stack and h[stack[-1]]>h[i]:
-            y=h[stack.pop()]
-            w=i if not stack else i-stack[-1]-1
-            ans=max(ans,y*w)
-        stack.append(i)
-    while stack:
-        y=h[stack.pop()]
-        w=n if not stack else n-stack[-1]-1
-        ans=max(ans,y*w)
-print(ans)
-```
+# GPT-4o
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+    return merge(left, right)
 
-#### 求逆序对数
-
-```python
-from bisect import *
-a=[]
-rev=0
-for _ in range(n):
-    num=int(input())
-    rev+=bisect_left(a,num)
-    insort_left(a,num)
-ans=n*(n-1)//2-rev
-```
-
-```python
-def merge_sort(a):
-    if len(a)<=1:
-        return a,0
-    mid=len(a)//2
-    l,l_cnt=merge_sort(a[:mid])
-    r,r_cnt=merge_sort(a[mid:])
-    merged,merge_cnt=merge(l,r)
-    return merged,l_cnt+r_cnt+merge_cnt
-def merge(l,r):
-    merged=[]
-    l_idx,r_idx=0,0
-    inverse_cnt=0
-    while l_idx<len(l) and r_idx<len(r):
-        if l[l_idx]<=r[r_idx]:
-            merged.append(l[l_idx])
-            l_idx+=1
+def merge(left, right):
+    merged = []
+    left_idx, right_idx = 0, 0
+    while left_idx < len(left) and right_idx < len(right):
+        if left[left_idx] <= right[right_idx]:
+            merged.append(left[left_idx])
+            left_idx += 1
         else:
-            merged.append(r[r_idx])
-            r_idx+=1
-            inverse_cnt+=len(l)-l_idx
-    merged.extend(l[l_idx:])
-    merged.extend(r[r_idx:])
-    return merged,inverse_cnt
+            merged.append(right[right_idx])
+            right_idx += 1
+    merged.extend(left[left_idx:])
+    merged.extend(right[right_idx:])
+    return merged
 ```
 
 
 
-#### 解析括号嵌套表达式
+#### $$食物链$$
 
 ```python
-def parse(s):
-    node=Node(s[0])
-    if len(s)==1:
-        return node
-    s=s[2:-1]; t=0; last=-1
-    for i in range(len(s)):
-        if s[i]=='(': t+=1
-        elif s[i]==')': t-=1
-        elif s[i]==',' and t==0:
-            node.children.append(parse(s[last+1:i]))
-            last=i
-    node.children.append(parse(s[last+1:]))
-    return node
+# OJ-01182
+def findfather(x,father):
+	if father[x]!=x:
+		father[x]=findfather(father[x],father)
+	return father[x]
+
+def union(n,statement):
+	father=[x for x in range(3*n+1)]
+	ans=0
+	for type,x,y in statement:
+		if x>n or y>n or type==2 and x==y:
+			ans+=1
+			continue
+		if findfather(x,father)==findfather(y,father) and type==2:
+			ans+=1
+		elif findfather(x,father)==findfather(y+n,father) and type==1:
+			ans+=1
+		elif findfather(y,father)==findfather(x+n,father) :
+			ans+=1
+		else:
+			if type==1:
+				father[findfather(y,father)]=findfather(x,father)
+				father[findfather(y+n,father)]=findfather(x+n,father)
+				father[findfather(y+2*n,father)]=findfather(x+2*n,father)
+			else:
+				father[findfather(y+n,father)]=findfather(x,father)
+				father[findfather(y+2*n,father)]=findfather(x+n,father)
+				father[findfather(y,father)]=findfather(x+2*n,father)
+	
+	print(ans)
+
+n,k=map(int,input().split())
+list1=[list(map(int,input().split())) for _ in range(k)]
+union(n,list1)
+
+# 如果a和b是同类，肯定有a_n与b_n连通，即有相同的根节点；如果a吃b，肯定有a_n与b_2n连通
 ```
 
-#### 并查集
+
+
+#### $$Dijkstra$$
 
 ```python
-class UnionFind:
-    def __init__(self,n):
-        self.p=list(range(n))
-        self.h=[0]*n
-    def find(self,x):
-        if self.p[x]!=x:
-            self.p[x]=self.find(self.p[x])
-        return self.p[x]
-    def union(self,x,y):
-        rootx=self.find(x)
-        rooty=self.find(y)
-        if rootx!=rooty:
-            if self.h[rootx]<self.h[rooty]:
-                self.p[rootx]=rooty
-            elif self.h[rootx]>self.h[rooty]:
-                self.p[rooty]=rootx
-            else:
-                self.p[rooty]=rootx
-                self.h[rootx]+=1
-```
-
-#### 
-
-Trie字典树
-
-
-
-
-
-
-
-#### dijkstra
-
-```python
-# 1.使用vis集合
+# CV来的
 def dijkstra(start,end):
     heap=[(0,start,[start])]
     vis=set()
@@ -643,243 +629,87 @@ def dijkstra(start,end):
         for v in graph[u]:
             if v not in vis:
                 heappush(heap,(cost+graph[u][v],v,path+[v]))
-# 2.使用dist数组
-import heapq
-def dijkstra(graph, start):
-    distances = {node: float('inf') for node in graph}
-    distances[start] = 0
-    priority_queue = [(0, start)]
-    while priority_queue:
-        current_distance, current_node = heapq.heappop(priority_queue)
-        if current_distance > distances[current_node]:
-            continue
-        for neighbor, weight in graph[current_node].items():
-            distance = current_distance + weight
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(priority_queue, (distance, neighbor))
-    return distances
 ```
 
-#### kruskal
+#### $$kruskal—对边进行操作，稠密图劣于Prim$$
+
+```
+学不会，不想学
+```
+
+#### $$prim—用heap就行$$
+
+#### $$拓扑排序—每次找入度为0的点,可以用来查找图中是否有环$$
+
+
+
+#### $$工具$$
 
 ```python
-uf=UnionFind(n)
-edges.sort()
-ans=0
-for w,u,v in edges:
-    if uf.union(u,v):
-        ans+=w
-print(ans)
-```
+for key,value in dict.items() # 遍历字典的键值对。
+for index,value in enumerate(list) # 枚举列表，提供元素及其索引。
+math.pow(m,n) # 计算 m 的 n 次幂。
+math.log(m,n) # 计算以 n 为底的 m 的对数。
 
-#### prim
-
-```python
-vis=[0]*n
-q=[(0,0)]
-ans=0
-while q:
-    w,u=heappop(q)
-    if vis[u]:
-        continue
-    ans+=w
-    vis[u]=1
-    for v in range(n):
-        if not vis[v] and graph[u][v]!=-1:
-            heappush(q,(graph[u][v],v))
-print(ans)
-```
-
-#### 拓扑排序
-
-```python
-from collections import deque
-def topo_sort(graph):
-    in_degree={u:0 for u in graph}
-    for u in graph:
-        for v in graph[u]:
-            in_degree[v]+=1
-    q=deque([u for u in in_degree if in_degree[u]==0])
-    topo_order=[]
-    while q:
-        u=q.popleft()
-        topo_order.append(u)
-        for v in graph[u]:
-            in_degree[v]-=1
-            if in_degree[v]==0:
-                q.append(v)
-    if len(topo_order)!=len(graph):
-        return []  
-    return topo_order
-```
-
-
-
-### 工具
-
-int(str,n)	将字符串`str`转换为`n`进制的整数。
-
-for key,value in dict.items()	遍历字典的键值对。
-
-for index,value in enumerate(list)	枚举列表，提供元素及其索引。
-
-dict.get(key,default) 	从字典中获取键对应的值，如果键不存在，则返回默认值`default`。
-
-list(zip(a,b))	将两个列表元素一一配对，生成元组的列表。
-
-math.pow(m,n)	计算`m`的`n`次幂。
-
-math.log(m,n)	计算以`n`为底的`m`的对数。
-
-lrucache	
-
-```py
 from functools import lru_cache
 @lru_cache(maxsize=None)
 ```
 
-bisect
+
+
+#### $$字符串$$
 
 ```python
-import bisect
-# 创建一个有序列表
-sorted_list = [1, 3, 4, 4, 5, 7]
-# 使用bisect_left查找插入点
-position = bisect.bisect_left(sorted_list, 4)
-print(position)  # 输出: 2
-# 使用bisect_right查找插入点
-position = bisect.bisect_right(sorted_list, 4)
-print(position)  # 输出: 4
-# 使用insort_left插入元素
-bisect.insort_left(sorted_list, 4)
-print(sorted_list)  # 输出: [1, 3, 4, 4, 4, 5, 7]
-# 使用insort_right插入元素
-bisect.insort_right(sorted_list, 4)
-print(sorted_list)  # 输出: [1, 3, 4, 4, 4, 4, 5, 7]
+#返回子字符串sub在字符串中首次出现的索引，如果未找到，则返回-1。
+str.find(sub) 
+
+#将字符串中的old子字符串替换为new(不超过max次，不加就全部替换)。
+str.replace(old, new [,max]) 
+
+#检查字符串是否以prefix开头或以suffix结尾。
+str.startswith(prefix)
+str.endswith(suffix)  
+
+#检查字符串是否全部由字母/数字/字母和数字组成。
+str.isalpha()
+str.isdigit()
+str.isalnum()
 ```
 
-字符串
 
-1. `str.lstrip() / str.rstrip()`: 移除字符串左侧/右侧的空白字符。
 
-2. `str.find(sub)`: 返回子字符串`sub`在字符串中首次出现的索引，如果未找到，则返回-1。
-
-3. `str.replace(old, new)`: 将字符串中的`old`子字符串替换为`new`。
-
-4. `str.startswith(prefix) / str.endswith(suffix)`: 检查字符串是否以`prefix`开头或以`suffix`结尾。
-
-5. `str.isalpha() / str.isdigit() / str.isalnum()`: 检查字符串是否全部由字母/数字/字母和数字组成。
-
-   6.`str.title()`：每个单词首字母大写。
-
-counter：计数
-
-```python
-from collections import Counter
-# 创建一个Counter对象
-count = Counter(['apple', 'banana', 'apple', 'orange', 'banana', 'apple'])
-# 输出Counter对象
-print(count)  # 输出: Counter({'apple': 3, 'banana': 2, 'orange': 1})
-# 访问单个元素的计数
-print(count['apple'])  # 输出: 3
-# 访问不存在的元素返回0
-print(count['grape'])  # 输出: 0
-# 添加元素
-count.update(['grape', 'apple'])
-print(count)  # 输出: Counter({'apple': 4, 'banana': 2, 'orange': 1, 'grape': 1})
-```
-
-permutations：全排列
+#### $$permutations:全排列$$
 
 ```python
 from itertools import permutations
-# 创建一个可迭代对象的排列
 perm = permutations([1, 2, 3])
-# 打印所有排列
-for p in perm:
-    print(p)
+print(*perm)
 # 输出: (1, 2, 3)，(1, 3, 2)，(2, 1, 3)，(2, 3, 1)，(3, 1, 2)，(3, 2, 1)
 ```
 
-combinations：组合
+#### $$combinations:组合$$
 
 ```python
 from itertools import combinations
-# 创建一个可迭代对象的组合
 comb = combinations([1, 2, 3], 2)
-# 打印所有组合
-for c in comb:
-    print(c)
+print(*comb)
 # 输出: (1, 2)，(1, 3)，(2, 3)
 ```
 
-reduce：累次运算
+
+
+#### $$ 字符串大小写转换$$
 
 ```python
-from functools import reduce
-# 使用reduce计算列表元素的乘积
-product = reduce(lambda x, y: x * y, [1, 2, 3, 4])
-print(product)  # 输出: 24
-```
-
-product：笛卡尔积
-
-```python
-from itertools import product
-# 创建两个可迭代对象的笛卡尔积
-prod = product([1, 2], ['a', 'b'])
-# 打印所有笛卡尔积对
-for p in prod:
-    print(p)
-# 输出: (1, 'a')，(1, 'b')，(2, 'a')，(2, 'b')
-```
-
-
-
-
-
-## 字符串
-
-### 1. 大小写转换
-
-```python
-text: str
 text.upper() # 变全大写
 text.lower() # 变全小写
 text.capitalize() # 首字母大写
-text.title() # 单个字母大写
 text.swapcase() # 大小写转换
-s[idx].isdigit() # 判断是否为整
-s.isnumeric() # 判断是否为数字（包含汉字、阿拉伯数字等）更广泛
-```
-
-补充：需要十分注意的一点事，当我们将str转化为list时（如‘sfda’：转化为的是['s', 'f', 'd', 'a']，而不是[‘sfda’]）
-
-### 2. 索引技巧
-
-#### 2.1 列表:
-
-`list.index()`
-
-```python
-# 返回第一个匹配元素的索引，如果找不到该元素则会引发 ValueError 异常
-
-list.index(element, start, end)
-
-my_list = [10, 20, 30, 40, 50, 30]
-index = my_list.index(30)
-print(index)  # 输出：2
-
-index = my_list.index(30, 3)
-print(index)  # 输出：5
 ```
 
 
 
-#### 2.2 字符串：
-
-`str.find()` 和 `str.index()`
+#### `str.find()`$$和$$`str.index()`
 
 ```python
 my_string = "Hello, world!"
@@ -896,92 +726,60 @@ print(index)  # 输出：7
 index = my_string.index("Python")  # 引发 ValueError
 ```
 
-#### 2.3 字典:
 
-```python
-my_dict = {'a': 1, 'b': 2, 'c': 3}
-exists = 'b' in my_dict
-print(exists)  # 输出：True
 
-exists = 'd' in my_dict
-print(exists)  # 输出：False
-
-keys_list = list(my_dict.keys())
-index = keys_list.index('b')
-print(index)  # 输出：1
-
-# 直接查找字典中的键
-index = list(my_dict).index('b')
-print(index)  # 输出：1
-
-dict.get(key, default=None)
-# 返回指定键的值，如果值不在字典中返回default值
-dict.setdefault(key, default=None)
-# 和get()类似, 但如果键不存在于字典中，将会添加键并将值设为default
-```
-
-#### 2.4 集合
+#### $$集合$$
 
 ```python
 set1 = {1, 2, 3}
 set2 = {3, 4, 5}
 
 # 并集
-union_set = set1 | set2
-print("并集:", union_set)  # 输出：{1, 2, 3, 4, 5}
+union_set = set1 | set2 # {1, 2, 3, 4, 5}
 
 # 交集
-intersection_set = set1 & set2
-print("交集:", intersection_set)  # 输出：{3}
+intersection_set = set1 & set2 # {3}
 
 # 差集
-difference_set = set1 - set2
-print("差集:", difference_set)  # 输出：{1, 2}
+difference_set = set1 - set2 # {1, 2}
 
 # 对称差集
-symmetric_difference_set = set1 ^ set2
-print("对称差集:", symmetric_difference_set)  # 输出：{1, 2, 4, 5}
+symmetric_difference_set = set1 ^ set2 # {1, 2, 4, 5}
 ```
 
-## import相关
+
+
+#### $$import$$
 
 ```python
-# pylint: skip-file
 import heapq
 from collections import defaultdict
-from collections import dequeue
 import bisect
+from bisect import *
 from functools import lru_cache
 @lru_cache(maxsize=None)
-import sys
-sys.setrecursionlimit(1<<32)
 import math
 math.ceil()  # 函数进行向上取整
 math.floor() # 函数进行向下取整。
-math.isqrt() # 开方取整
-exit()
+round()      # 四舍五入
 ```
 
 
 
-#### bisect
+#### $$bisect$$
 
-1. $$bisect.bisect_left(a, x, lo=0, hi=len(a))$$
-   - 在列表`a`中查找元素`x`的插入点，使得插入后仍保持排序。
-   - 返回插入点的索引，插入点位于`a`中所有等于`x`的元素之前。
-2. $$bisect.bisect_right(a, x, lo=0, hi=len(a))$$ 或 $$bisect.bisect(a, x, lo=0, hi=len(a))$$
-   - 类似于`bisect_left`，但插入点位于`a`中所有等于`x`的元素之后。
-3. $$bisect.insort_left(a, x, lo=0, hi=len(a))$$
-   - 在`a`中查找`x`的插入点并插入`x`，保持列表`a`的有序。
-   - 插入点位于`a`中所有等于`x`的元素之前。
-4. $$bisect.insort_right(a, x, lo=0, hi=len(a))$$ 或 $$bisect.insort(a, x, lo=0, hi=len(a))$$
-   - 类似于`insort_left`，但插入点位于`a`中所有等于`x`的元素之后。
+1. `bisect.bisect_left(list, x, lo=0, hi=len(list))`
+   - $$在列表$$`list`$$中查找元素$$`x`$$的插入点，使得插入后仍保持排序。$$
+   - $$返回插入点的索引，插入点位于$$`list`$$中所有等于$$`x`$$的元素之前。$$
+2. `bisect.bisect_right(list, x, lo=0, hi=len(list))`
+   - $$类似于$$`bisect_left`$$，但插入点位于$$`list`$$中所有等于$$`x`$$的元素之后。$$
+3. `bisect.insort_left(list, x, lo=0, hi=len(list))`
+   - 在`list`中查找`x`的插入点并插入`x`，保持列表`list`的有序。
+   - 插入点位于`list`中所有等于`x`的元素之前。
+4. `bisect.insort_right(list, x, lo=0, hi=len(list))`
+   - 类似于`insort_left`，但插入点位于`list`中所有等于`x`的元素之后。
 
-###### 示例代码
-
-```
-python复制代码import bisect
-
+```python
 a = [1, 2, 4, 4, 5]
 
 # 查找插入点
@@ -996,46 +794,119 @@ bisect.insort_right(a, 4)
 print(a)  # 输出: [1, 2, 3, 4, 4, 4, 5]
 ```
 
+##### $$nlog(n)复杂度求逆序数$$
+
+```python
+import bisect
+n=int(input())
+lsit1=list(map(int,input().split()))
+list1=[]
+ans=0
+for i in lsit1:
+    pos=bisect.bisect_left(list1,i)
+    ans+=pos
+    list1.insert(pos,i)
+print(ans)
+```
+
+#### $$跳高$$
+
+```python
+#Dilworth定理:任何一个有限偏序集的最长反链(即最长下降子序列)
+#的长度等于将该偏序集划分为尽量少的链(即上升子序列)的最小数量。
+from bisect import * 
+n=int(input())
+list2=list(map(int,input().split()))
+list1=[-x for x in list2]
+que=[]
+for i in list1:
+	pos=bisect_left(que,i)
+	if pos<len(que):
+		que[pos]=i
+	else:
+		que.append(i)
+print(len(que))
+```
 
 
-## 转换
 
-#### 进制
+#### $$进制转换$$
 
 ```python
 b = bin(item)  # 2进制 0b1111
 o = oct(item)  # 8进制 0o1111
 h = hex(item)  # 16进制 0xffff
+int(str,n)	   #将字符串str转换为n进制的整数。
+int(bin(item)[2:])   #十进制转二进制
+#任意阶：辗转相除
+def f(n,x):
+    a=[0,1,2,3,4,5,6,7,8,9,'A','b','C','D','E','F']#……
+    b=[]
+    while n:
+        b.append(a[n%x])
+        n//=x
+    return (b[::-1])
 ```
 
-#### ASCII
+
+
+#### $$ASCII$$
 
 ```python
 ord(char) -> ASCII_value
 chr(ascii_value) -> char
 ```
 
-#### print保留小数
+
+
+### $$Trie$$
 
 ```python
-print("%.6f" % x)
-print("{:.6f}".format(result))
-# 当输出内容很多时：
-print('\n'.join(map(str, ans)))
+#自己写的破烂 OJ-04089
+class Node:
+	def __init__(self,data=None):
+		self.data=data
+		self.children={}
+
+class Trie:
+	def __init__(self,list2):
+		self.list2=list2
+		self.root=Node()
+		
+	def buildtree(self):
+		for i in self.list2:
+			a=self.root
+			for char in i:
+				if char not in a.children.keys():
+					a.children[char]=Node(char)
+					a=a.children[char]
+				else:
+					a=a.children[char]
+
+	def search(self):
+		for i in self.list2:
+			a=self.root
+			for pos in range(len(i)):
+				a=a.children[i[pos]]
+			if a.children:
+				return False
+		return True
+
+for _ in range(int(input())):
+	n=int(input())
+	list1=[input() for _ in range(n)]
+	if len(list1)!=len(set(list1)):
+		print('NO')
+		continue
+	Tree=Trie(list1)
+	Tree.buildtree()
+	if Tree.search():
+		print('YES')
+	else:
+		print('NO')
 ```
 
-## 算法
 
-### 1.埃氏筛
-
-```python
-n = int(input())
-prime = [0]*2 + [1]*(n-1)
-for i in range(n+1):
-    if prime[i]:
-        for j in range(i*i, n+1, i):
-            prime[j] = 0
-```
 
 ### 2.强联通子图
 
@@ -1044,6 +915,8 @@ Kosaraju's算法可以分为以下几个步骤：
 1. $$第一次DFS$$：对图进行一次DFS，并记录每个顶点的完成时间（即DFS从该顶点返回的时间）。
 2. $$转置图$$：将图中所有边的方向反转，得到转置图。
 3. $$第二次DFS$$：根据第一次DFS记录的完成时间的逆序，对转置图进行DFS。每次DFS遍历到的所有顶点构成一个强连通分量。
+
+
 
 ### 详细步骤
 
@@ -1130,114 +1003,3 @@ g.addEdge(3, 4)
 print("Strongly Connected Components:")
 g.printSCCs()
 ```
-
-### 代码说明
-
-1. $$Graph类$$：
-   - 初始化图的邻接表表示。
-   - `addEdge`方法用于添加图的边。
-2. $$\_dfs和_fillOrder$$：
-   - `_dfs`方法用于深度优先搜索，并在顶点完成时将其添加到栈中。
-   - `_fillOrder`方法用于填充栈，记录顶点的完成顺序。
-3. $$_transpose$$：
-   - `_transpose`方法用于生成转置图。
-4. $$_dfsUtil$$：
-   - `_dfsUtil`方法用于在转置图上进行DFS。
-5. $$printSCCs$$：
-   - `printSCCs`方法结合上述方法实现Kosaraju's算法，用于打印强连通分量。
-
-在这个实现中，我们首先对原图进行一次DFS，并记录每个顶点的完成时间顺序。然后我们构造转置图，并根据完成时间顺序的逆序对转置图进行DFS，找到所有强连通分量。
-
-### 二分查找
-
-```python
-# hi:不可行最小值， lo:可行最大值
-lo, hi, ans = 0, max(lst), 0
-while lo + 1 < hi:
-    mid = (lo + hi) // 2
-    # print(lo, hi, mid)
-    if check(mid): # 返回True，是因为num>m，是确定不合适
-        ans = mid
-        lo = mid # 所以lo可以置为 mid + 1。
-    else:
-        hi = mid
-#print(lo)
-print(ans)
-```
-
-# 数据结构
-
-### 单调栈
-
-* 栈中元素单调。若题目时间复杂度降不下来，可以考虑。（==Tough预定==知识点）
-
-### 并查集
-
-```python
-P = list(range(N))
-def p(x):
-    if P[x] == x:
-        return x
-    else:
-        P[x] = p(P[x])
-        return P[x]
-    
-def union(x, y):
-    px, py = p(x), p(y)
-    if px==py:
-        return True
-    else:
-        if <不合法>:  # 根据题意，有时可略
-            return False
-        else:
-            P[px] = py
-            return True
-```
-
-### 8.Trie
-
-1. $$插入（Insert）$$：
-
-   ```python
-   class TrieNode:
-       def __init__(self):
-           self.children = {}
-           self.is_end_of_word = False
-   
-   class Trie:
-       def __init__(self):
-           self.root = TrieNode()
-   
-       def insert(self, word):
-           node = self.root
-           for char in word:
-               if char not in node.children:
-                   node.children[char] = TrieNode()
-               node = node.children[char]
-           node.is_end_of_word = True
-   ```
-
-2. $$查找（Search）$$：
-
-   ```python
-   def search(self, word):
-       node = self.root
-       for char in word:
-           if char not in node.children:
-               return False
-           node = node.children[char]
-       return node.is_end_of_word
-   ```
-
-3. $$前缀查询（StartsWith）$$：
-
-   ```python
-   def starts_with(self, prefix):
-       node = self.root
-       for char in prefix:
-           if char not in node.children:
-               return False
-           node = node.children[char]
-       return True
-   ```
-
