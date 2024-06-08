@@ -53,7 +53,7 @@ print(*post(root).split())
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![Screenshot 2024-03-24 225946](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H6/Screenshot%202024-03-24%20225946.jpg)
+![Screenshot 2024-03-24 225946](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/d66ffa1bd12e58710ba30501a4aeddad7233757d/img/Screenshot%202024-03-24%20225946.jpg)
 
 
 
@@ -104,7 +104,7 @@ print(*ans)
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![Screenshot 2024-03-24 230044](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H6/Screenshot%202024-03-24%20230044.jpg)
+![Screenshot 2024-03-24 230044](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/d66ffa1bd12e58710ba30501a4aeddad7233757d/img/Screenshot%202024-03-24%20230044.jpg)
 
 
 
@@ -133,7 +133,7 @@ for _ in range(int(input())):
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H6/Screenshot%202024-03-24%20230126.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/d66ffa1bd12e58710ba30501a4aeddad7233757d/img/Screenshot%202024-03-24%20230044.jpg)
 
 
 
