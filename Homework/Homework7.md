@@ -27,7 +27,7 @@ print(*s)
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H7/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-03%20170447.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/47587f88aa4413d361c0034d02be853e7e4173cc/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-03%20170447.jpg)
 
 
 
@@ -60,7 +60,7 @@ print(ans)
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H7/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-03%20170512.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/47587f88aa4413d361c0034d02be853e7e4173cc/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-03%20170512.jpg)
 
 
 
@@ -93,7 +93,7 @@ else:
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H7/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-03%20170529.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/47587f88aa4413d361c0034d02be853e7e4173cc/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-03%20170529.jpg)
 
 
 
@@ -142,7 +142,7 @@ print(post(buildtree(s)))
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H7/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-03%20170552.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/47587f88aa4413d361c0034d02be853e7e4173cc/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-03%20170552.jpg)
 
 
 
@@ -191,7 +191,7 @@ while True:
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H7/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-03%20170612.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/47587f88aa4413d361c0034d02be853e7e4173cc/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-03%20170612.jpg)
 
 
 
@@ -256,7 +256,7 @@ for i in ans:
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H7/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-03%20170635.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/47587f88aa4413d361c0034d02be853e7e4173cc/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-03%20170635.jpg)
 
 
 
