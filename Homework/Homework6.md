@@ -133,7 +133,7 @@ for _ in range(int(input())):
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/d66ffa1bd12e58710ba30501a4aeddad7233757d/img/Screenshot%202024-03-24%20230044.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/c2f2773ad02f79612f5357bc1d3aa541d6efb23b/img/Screenshot%202024-03-24%20230126.jpg)
 
 
 
@@ -206,7 +206,7 @@ while True:
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H6/Screenshot%202024-03-24%20230751.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/c2f2773ad02f79612f5357bc1d3aa541d6efb23b/img/Screenshot%202024-03-24%20230751.jpg)
 
 
 
@@ -304,7 +304,7 @@ print(*pre(Tree.root))
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![Screenshot 2024-03-25 001718](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H6/Screenshot%202024-03-25%20001718.jpg)
+![Screenshot 2024-03-25 001718](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/c2f2773ad02f79612f5357bc1d3aa541d6efb23b/img/Screenshot%202024-03-25%20091509.jpg)
 
 
 
@@ -350,7 +350,7 @@ while True:
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H6/Screenshot%202024-03-25%20091509.jpg)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/c2f2773ad02f79612f5357bc1d3aa541d6efb23b/img/Screenshot%202024-03-24%20230751.jpg)
 
 
 
