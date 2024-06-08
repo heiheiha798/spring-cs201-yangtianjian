@@ -36,7 +36,7 @@ for i in graph:
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H8/08.04.2024_12.14.44_REC.png)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/47587f88aa4413d361c0034d02be853e7e4173cc/img/08.04.2024_12.14.44_REC.png)
 
 
 
@@ -80,7 +80,7 @@ for _ in range(int(input())):
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H8/08.04.2024_12.20.33_REC.png)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/47587f88aa4413d361c0034d02be853e7e4173cc/img/08.04.2024_12.20.33_REC.png)
 
 
 
@@ -130,7 +130,7 @@ print(ans)
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H8/08.04.2024_12.32.09_REC.png)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/47587f88aa4413d361c0034d02be853e7e4173cc/img/08.04.2024_12.32.09_REC.png)
 
 
 
@@ -174,7 +174,7 @@ print(fourSumCount(A, B, C, D))
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H8/08.04.2024_12.49.25_REC.png)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/47587f88aa4413d361c0034d02be853e7e4173cc/img/08.04.2024_12.49.25_REC.png)
 
 
 
@@ -207,7 +207,7 @@ for _ in range(int(input())):
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H8/08.04.2024_13.13.56_REC.png)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/47587f88aa4413d361c0034d02be853e7e4173cc/img/08.04.2024_13.13.56_REC.png)
 
 
 
@@ -266,7 +266,7 @@ for key,value in buildtree1(buildtree(list(input().split())),1).items():
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-![](C:/Users/13071/Desktop/24-1/DSA-B/Homework/H8/08.04.2024_13.15.03_REC.png)
+![](https://github.com/heiheiha798/spring-cs201-yangtianjian/blob/47587f88aa4413d361c0034d02be853e7e4173cc/img/08.04.2024_13.15.03_REC.png)
 
 
 
